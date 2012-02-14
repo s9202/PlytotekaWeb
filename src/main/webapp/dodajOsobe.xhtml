@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:a4j="http://richfaces.org/a4j">
+	<ui:define name="content">
+		<h:form id="personForm">
+			<h:panelGrid columns="2">
+
+				<h:outputText value="#{msg.osobaIdEtykieta}" />
+				<h:inputText id="id" value="#{osobaBean.osoba.id}" 
+				validator="#{osobaBean.getUnikalneIdOsoby}">
+				<f:validator validatorId="idValidator" />
+				<f:ajax execute="@this" render="messages beanState" />
+				</h:inputText>
+
+				<h:outputText value="#{msg.osobaImieEtykieta}" />
+				<h:inputText id="imie" value="#{osobaBean.osoba.imie}"
+					required="#{true}" />
+				
+
+				<h:outputText value="#{msg.osobaNazwiskoEtykieta}" />
+				<h:inputText id="nazwisko" value="#{osobaBean.osoba.nazwisko}"
+					required="#{true}" />
+				
+
+			</h:panelGrid>
+
+			<h:commandButton value="#{msg.personFormOKButton}"
+				action="#{osobaBean.dodajOsobeBean}" />
+
+
+			<h:panelGrid>
+				<h:messages id="messages" showDetail="#{true}"
+					showSummary="#{false}" />
+			</h:panelGrid>
+
+			<h:panelGrid id="beanState" columns="2">
+
+				<h:outputText value="#{msg.osobaIdEtykieta}" />
+				<h:outputText id="idOutput" value="#{osobaBean.osoba.id}" />
+
+				<h:outputText value="#{msg.osobaImieEtykieta}" />
+				<h:outputText id="imieOutput" value="#{osobaBean.osoba.imie}" />
+
+				<h:outputText value="#{msg.osobaNazwiskoEtykieta}" />
+				<h:outputText id="nazwiskoOutput" value="#{osobaBean.osoba.nazwisko}" />
+								
+			</h:panelGrid>
+
+		</h:form>
+	</ui:define>
+</ui:composition>

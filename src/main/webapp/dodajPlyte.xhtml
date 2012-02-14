@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+	<ui:define name="content">
+		<h:form id="plytaForm">
+			<h:panelGrid columns="2">
+			
+				<h:outputText value="#{msg.plytaIdOsobyEtykieta}" />
+				<h:inputText id="id_osoby" value="#{plytaBean.plyta.id_osoby}" />
+			
+				<h:outputText value="#{msg.plytaIdEtykieta}" />
+				<h:inputText id="id" value="#{plytaBean.plyta.id}" />
+
+				<h:outputText value="#{msg.plytaWykonawcaEtykieta}" />
+				<h:inputText id="wykonawca" value="#{plytaBean.plyta.wykonawca}" />
+				
+				<h:outputText value="#{msg.plytaTytulEtykieta}" />
+				<h:inputText id="tytul" value="#{plytaBean.plyta.tytul}" />
+				
+				
+				<h:outputText value="#{msg.plytaRokEtykieta}" />
+				<h:inputText id="rok" value="#{plytaBean.plyta.rok}" />
+				
+			</h:panelGrid>
+
+			<h:commandButton value="#{msg.personFormOKButton}"
+				action="#{plytaBean.dodajPlyteBean}" />
+				
+			<h:panelGrid>
+				<h:messages showDetail="#{true}" showSummary="#{false}" />
+			</h:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>

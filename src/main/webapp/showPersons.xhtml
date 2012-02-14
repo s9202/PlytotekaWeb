@@ -8,23 +8,32 @@
 	<ui:define name="content">
 	
     <h:form>
-    
-     <h:dataTable value="#{personBean.allPersons}" var="item">
-      <f:facet name="header">#{msg.personAllLabel}</f:facet>
+     <h:dataTable value="#{osobaBean.wszystkieOsobyBean}" var="item">
+      <f:facet name="header">#{msg.osobaAllLabel}</f:facet>
       
       <h:column>
-        <f:facet name="header">#{msg.personFirstNameLabel}</f:facet>
-        #{item.firstName}
+        <f:facet name="header">#{msg.osobaIdEtykieta}</f:facet>
+        #{item.id}
       </h:column>
       
       <h:column>
-        <f:facet name="header">#{msg.personPinLabel}</f:facet>
-        #{item.pin}
+        <f:facet name="header">#{msg.osobaImieEtykieta}</f:facet>
+        #{item.imie}
+      </h:column>
+      
+       <h:column>
+        <f:facet name="header">#{msg.osobaNazwiskoEtykieta}</f:facet>
+        #{item.nazwisko}
       </h:column>
       
       <h:column>
         <f:facet name="header">#{msg.action}</f:facet>
-        <h:commandLink value="#{msg.actionDelete}" action="#{personBean.deletePerson}"/>
+        <h:commandLink value="#{msg.actionDelete}" action="#{osobaBean.usunOsobeBean}"/>
+      </h:column>
+      
+      <h:column>
+        <f:facet name="header">#{msg.action}</f:facet>
+        <h:commandLink value="#{msg.actionPokazPlyty}" action="#{osobaBean.pokazPlytyOsobyBean}"/>
       </h:column>
       
      </h:dataTable>

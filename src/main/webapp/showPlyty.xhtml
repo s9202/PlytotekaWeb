@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+	
+	<ui:define name="content">
+	
+    <h:form>
+    
+     <h:dataTable value="#{plytaBean.wszystkiePlytyBean}" var="item">
+      <f:facet name="header">#{msg.plytaAllLabel}</f:facet>
+      
+      <h:column>
+        <f:facet name="header">#{msg.plytaOsobyEtykieta}</f:facet>
+        #{item.id_osoby}
+      </h:column>
+      
+      <h:column>
+        <f:facet name="header">#{msg.plytaIdEtykieta}</f:facet>
+        #{item.id}
+      </h:column>
+      
+      <h:column>
+        <f:facet name="header">#{msg.plytaWykonawcaEtykieta}</f:facet>
+        #{item.wykonawca}
+      </h:column>
+      
+       <h:column>
+        <f:facet name="header">#{msg.plytaTytulEtykieta}</f:facet>
+        #{item.tytul}
+      </h:column>
+      
+      
+      <h:column>
+        <f:facet name="header">#{msg.plytaRokEtykieta}</f:facet>
+        #{item.rok}
+      </h:column>
+      
+      <h:column>
+        <f:facet name="header">#{msg.action}</f:facet>
+        <h:commandLink value="#{msg.actionDelete}" action="#{plytaBean.usunPlyteBean}"/>
+      </h:column>
+      
+     </h:dataTable>
+    </h:form>
+      
+	</ui:define>
+	
+</ui:composition>
